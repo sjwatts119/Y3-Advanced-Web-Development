@@ -10,7 +10,7 @@ Route::get('/', function () {
 
 //create properties route
 Route::get('/properties', function () {
-    return view('properties');
+    return view('properties', ['listings' => App\Models\PropertyListing::all()]);
 })->name('properties');
 
 //create enquiries route

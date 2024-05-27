@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -15,7 +16,7 @@ class PropertyListing extends Model implements HasMedia
     use SoftDeletes;
     use InteractsWithMedia;
 
-    protected $casts = [
+    public $casts = [
         'attributes' => 'array',
     ];
 
@@ -31,5 +32,9 @@ class PropertyListing extends Model implements HasMedia
 
     public function user(): BelongsTo{
         return $this->belongsTo(User::class);
+    }
+
+    public function friendlyDescription(): string{
+        return Str::words(strip_tags($this->description), 20, '...');
     }
 }
