@@ -43,6 +43,11 @@ class PropertyListingResource extends Resource
                 ->dehydrateStateUsing(function ($state) {
                     return Auth::id();
                 }),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('images')
+                    ->acceptedFileTypes(['image/*'])
+                    ->rules('required')
+                    ->maxFiles(10)
+                    ->imageEditor(),
             ]);
     }
 
