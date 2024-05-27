@@ -8,6 +8,16 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+//create properties route
+Route::get('/properties', function () {
+    return view('properties');
+})->name('properties');
+
+//create enquiries route
+Route::get('/enquiries', function () {
+    return view('enquiries');
+})->name('enquiries');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

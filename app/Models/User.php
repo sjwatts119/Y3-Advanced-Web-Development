@@ -48,4 +48,10 @@ class User extends Authenticatable
     public function propertyListings(): HasMany{
         return $this->hasMany(PropertyListing::class);
     }
+
+    //IN PRODUCTION THIS MUST WORK FOR FILAMENT TO ALLOW ACCESS
+    /*public function canAccessFilament(): bool
+    {
+        return $this->is_admin;
+    }*/
 }
