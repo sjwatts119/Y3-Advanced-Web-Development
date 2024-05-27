@@ -23,7 +23,9 @@
     <div class="px-6 py-4">
         {{-- loop through the attributes which have been stored as json and casted to an array, with each record being in format: "key": value --}}
         @foreach($listing->attributes as $key => $value)
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ $key }}: {{ $value }}</span>
+            @if($value)
+                <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ $key }}</span>
+            @endif
         @endforeach
     </div>
 </div>

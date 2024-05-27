@@ -30,14 +30,14 @@ class PropertyListingResource extends Resource
                 Forms\Components\TextInput::make('sleeps')->required()->numeric()->minlength(1),
                 Forms\Components\TextInput::make('location')->required()->minlength(3),
                 //we need an array of attributes for: Single Story, Multistory, Beach, Disability friendly, Family Friendly, Dog/Pets Allowed, Parking, Pool, Garden
-                Forms\Components\Checkbox::make('attributes.multistory'),
-                Forms\Components\Checkbox::make('attributes.beach'),
-                Forms\Components\Checkbox::make('attributes.disability_friendly'),
-                Forms\Components\Checkbox::make('attributes.family_friendly'),
-                Forms\Components\Checkbox::make('attributes.pets_allowed'),
-                Forms\Components\Checkbox::make('attributes.parking'),
-                Forms\Components\Checkbox::make('attributes.pool'),
-                Forms\Components\Checkbox::make('attributes.garden'),
+                Forms\Components\Checkbox::make('attributes.Multi Story'),
+                Forms\Components\Checkbox::make('attributes.Beach Nearby'),
+                Forms\Components\Checkbox::make('attributes.Disability Friendly'),
+                Forms\Components\Checkbox::make('attributes.Family Friendly'),
+                Forms\Components\Checkbox::make('attributes.Pets Allowed'),
+                Forms\Components\Checkbox::make('attributes.Parking'),
+                Forms\Components\Checkbox::make('attributes.Pool'),
+                Forms\Components\Checkbox::make('attributes.Garden'),
                 //make a hidden field so we can store the user_id and fill it with the current user
                 Forms\Components\Hidden::make('user_id')
                 ->dehydrateStateUsing(function ($state) {
