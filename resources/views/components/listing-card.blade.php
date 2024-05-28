@@ -12,7 +12,7 @@
     {{--show the listing's first image as to where it is always the same size, and maintains the same aspect ratio--}}
     <div class="overflow-hidden md:w-1/2 w-full md:h-full ">
         @if($listing->GetFirstMediaUrl())
-            <img class="object-cover w-full md:h-full h-96  m-auto" src="{{ $listing->GetFirstMediaUrl() }}" alt="{{ $listing->name }}">
+            <img class="object-cover w-full md:h-full h-96 m-auto" src="{{ $listing->GetFirstMediaUrl() }}" alt="{{ $listing->name }}">
         @else
             <img class="object-cover w-full md:h-full m-auto" src="https://via.placeholder.com/150" alt="{{ $listing->name }}">
         @endif
