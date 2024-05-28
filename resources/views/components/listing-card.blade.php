@@ -8,7 +8,7 @@
         'attributes',
 --}}
 
-<a href="#" class="h-full flex flex-col items-center bg-white shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+<a href="properties/{{$listing->slug}}" class="h-full flex flex-col items-center bg-white shadow md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
     {{--show the listing's first image as to where it is always the same size, and maintains the same aspect ratio--}}
     <div class="overflow-hidden md:w-1/2 w-full md:h-full ">
         @if($listing->GetFirstMediaUrl())
