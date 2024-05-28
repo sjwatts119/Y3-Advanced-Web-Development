@@ -48,6 +48,7 @@ class PropertyListingResource extends Resource
                     ->rules('required')
                     ->maxFiles(10)
                     ->optimize('webp')
+                    ->multiple()
                     ->imageEditor(),
             ]);
     }

@@ -8,12 +8,14 @@
         </h2>
     </x-slot>
 
-
-
-    <div class="flex flex-wrap">
-        @foreach($listings as $listing)
-            @include('components.listing-card', ['listing' => $listing])
-        @endforeach
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex flex-wrap">
+                @foreach($listings as $listing)
+                    @include('components.listing-card', ['listing' => $listing])
+                @endforeach
+            </div>
+        </div>
     </div>
 
 </x-app-layout>
