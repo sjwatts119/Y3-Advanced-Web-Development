@@ -1,9 +1,9 @@
 <div>
     {{--80% width container auto margin left and right --}}
-    <div class="container md:w-3/4 w-11/12 mx-auto mt-5">
+    <div class="container lg:w-3/4 w-11/12 mx-auto mt-5">
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <!-- Carousel wrapper -->
-            <div class="relative overflow-hidden rounded-2xl md:h-96 h-[600px]">
+            <div class="relative overflow-hidden rounded-2xl lg:h-96 h-[600px]">
                 @foreach($listings as $listing)
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         @include('components.listing-card', ['listing' => $listing])

@@ -35,6 +35,6 @@ class PropertyListing extends Model implements HasMedia
     }
 
     public function friendlyDescription(): string{
-        return Str::limit(strip_tags($this->description), 200);
+        return Str::limit(strip_tags($this->description), 150);
     }
 }

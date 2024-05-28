@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="container mx-auto px-4 mt-5">
+    <div class="container mx-auto px-4 py-5">
         <div class="bg-white rounded-xl lg:w-2/3 w-full mx-auto">
             <div class="container md:min-h-0 flex flex-col p-4 leading-normal">
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
@@ -48,8 +48,6 @@
                 </div>
 
                 <div class="container mx-auto w-full md:min-h-0 flex flex-col p-4 leading-normal">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$listing->name}}</h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{strip_tags($listing->description)}}</p>
                     <div class="flex flex-wrap">
                         {{--loop through attributes and show icons if they are true--}}
                         @foreach($listing->attributes as $key => $value)
@@ -58,6 +56,8 @@
                             @endif
                         @endforeach
                     </div>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$listing->name}}</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{strip_tags($listing->description)}}</p>
                 </div>
             </div>
         </div>
