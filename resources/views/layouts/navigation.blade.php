@@ -89,7 +89,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('filament.admin.pages.dashboard')" :active="request()->routeIs('filament.admin.pages.dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Admin Area') }}
             </x-responsive-nav-link>
         </div>
 
