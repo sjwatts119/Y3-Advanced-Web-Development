@@ -13,7 +13,7 @@ Route::get('/', function () {
 //create properties route
 Route::get('/properties', [PropertyListingController::class, 'index'])->name('properties.index');
 
-// make a route to properties.index to show a specific property listing);
+//make a route to properties.index to show a specific property listing
 Route::get('/properties/{slug}', [PropertyListingController::class, 'show'])->name('properties.show');
 
 //create enquiries route
