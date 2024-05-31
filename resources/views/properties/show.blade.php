@@ -7,8 +7,8 @@
         </h2>
     </x-slot>
 
-    <div class="container mx-auto px-4 py-5">
-        <div class="bg-white rounded-xl lg:w-2/3 w-full mx-auto">
+    <div class="container mx-auto w-11/12 lg:w-3/4 bg-white rounded-2xl mt-5">
+        <div class=" rounded-xl w-full">
             <div class="container md:min-h-0 flex flex-col p-4 leading-normal">
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
                     <!-- Carousel wrapper -->
@@ -80,4 +80,12 @@
             </div>
         </div>
     </div>
+
+    {{--page divider--}}
+    <div class="container mx-auto px-4 py-10">
+        <hr class="border-t-2 border-gray-200 dark:border-gray-700">
+    </div>
+
+    {{--include upsell component --}}
+    <x-upsell :listings="$listings" />
 </x-app-layout>

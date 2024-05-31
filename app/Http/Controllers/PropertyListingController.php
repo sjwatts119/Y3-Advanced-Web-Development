@@ -12,6 +12,9 @@ class PropertyListingController extends Controller
     }
 
     public function show($slug){
-        return view('properties.show', ['listing' => PropertyListing::where('slug', $slug)->first()]);
+        return view('properties.show', [
+            'listing' => PropertyListing::where('slug', $slug)->first(),
+            'listings' => PropertyListing::all()
+        ]);
     }
 }
