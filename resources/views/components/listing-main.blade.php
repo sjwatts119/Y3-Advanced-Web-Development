@@ -100,9 +100,14 @@
                 </h2>
                 <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
                     <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                        @foreach($listing->reviews as $review)
-                            review
-                        @endforeach
+                        @if($listing->reviews)
+                            {{--loop through 5 random reviews--}}
+                            @foreach($listing->reviews as $review)
+                                NEED TO DO REVIEWS
+                            @endforeach
+                        @else
+                            <p class="mb-2 text-gray-500 dark:text-gray-400">No reviews yet</p>
+                        @endif
                     </div>
                 </div>
             </div>
