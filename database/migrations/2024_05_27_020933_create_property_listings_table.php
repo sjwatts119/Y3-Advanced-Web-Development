@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->text('description');
+            $table->text('property');
+            $table->text('local_area');
+            $table->text('accommodation');
+            $table->json('reviews');
             $table->string('slug')->unique();
             $table->integer('sleeps');
             $table->string('location');

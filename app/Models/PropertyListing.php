@@ -18,13 +18,17 @@ class PropertyListing extends Model implements HasMedia
 
     public $casts = [
         'attributes' => 'array',
+        'reviews' => 'array',
     ];
 
     protected $fillable = [
         'user_id',
         'name',
         'slug',
-        'description',
+        'property',
+        'local_area',
+        'accommodation',
+        'reviews',
         'sleeps',
         'location',
         'attributes',
