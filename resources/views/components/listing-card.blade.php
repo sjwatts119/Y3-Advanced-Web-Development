@@ -22,10 +22,8 @@
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$listing->friendlyDescription()}}</p>
             <div class="flex flex-wrap">
                 {{--loop through attributes and show icons if they are true--}}
-                @foreach($listing->attributes as $key => $value)
-                    @if($value)
-                        <span class="inline-block bg-green-200 rounded-full px-3 py-1 my-1 text-sm font-semibold text-gray-700 mr-1">{{$key}}</span>
-                    @endif
+                @foreach($listing->attributes as $attribute)
+                    <span class="inline-block bg-green-200 rounded-full px-3 py-1 my-1 text-sm font-semibold text-gray-700 mr-1">{{$attribute}}</span>
                 @endforeach
             </div>
     </div>

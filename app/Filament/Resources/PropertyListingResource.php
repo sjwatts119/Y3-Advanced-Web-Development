@@ -43,15 +43,15 @@ class PropertyListingResource extends Resource
                 //we need an array of attributes for: Single Story, Multistory, Beach, Disability friendly, Family Friendly, Dog/Pets Allowed, Parking, Pool, Garden
                 Forms\Components\CheckboxList::make('attributes')
                     ->options([
-                        'single' => 'Single Story',
-                        'multi' => 'Multi Story',
-                        'beach' => 'Beach Nearby',
-                        'disability' => 'Disability Friendly',
-                        'family' => 'Family Friendly',
-                        'pets' => 'Pets Allowed',
-                        'parking' => 'Parking',
-                        'pool' => 'Pool',
-                        'garden' => 'Garden',
+                        'Single Story' => 'Single Story',
+                        'Multi Story' => 'Multi Story',
+                        'Beach Nearby' => 'Beach Nearby',
+                        'Disability Friendly' => 'Disability Friendly',
+                        'Family Friendly' => 'Family Friendly',
+                        'Pets Allowed' => 'Pets Allowed',
+                        'Parking' => 'Parking',
+                        'Pool' => 'Pool',
+                        'Garden' => 'Garden',
                     ]),
                 //make a hidden field so we can store the user_id and fill it with the current user
                 Forms\Components\Hidden::make('user_id')

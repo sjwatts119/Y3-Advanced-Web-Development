@@ -34,10 +34,8 @@
             <p class="ml-2 text-sm text-gray-700 dark:text-gray-400">Sleeps {{$listing->sleeps}}</p>
         </div>
         <div class="flex flex-wrap">
-            @foreach($listing->attributes as $key => $value)
-                @if($value)
-                    <span class="inline-block bg-green-200 rounded-full px-3 py-1 my-1 text-xs font-semibold text-gray-700 mr-1">{{$key}}</span>
-                @endif
+            @foreach($listing->attributes as $attribute)
+                <span class="inline-block bg-green-200 rounded-full px-3 py-1 my-1 text-xs font-semibold text-gray-700 mr-1">{{$attribute}}</span>
             @endforeach
         </div>
     </div>
