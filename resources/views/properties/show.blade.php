@@ -17,7 +17,8 @@
     </div>
 
     {{--include upsell component passing in all listings and current listing ID --}}
-    @include('components.upsell', ['listings' => $listings, 'currentListingId' => $listing->id])
+    <x-upsell :listings="$listings" :currentListingId="$listing->id" />
 
     {{--page divider--}}
+
 </x-app-layout>
