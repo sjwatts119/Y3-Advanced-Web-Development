@@ -1,6 +1,9 @@
 {{--within this component we should have a grid of four listing-card-small components--}}
 {{--these should be selected randomly from the range of listings passed in so we aren't showing the same listings each time--}}
 @php
+    //remove current listing from the list
+    $listings = $listings->where('id', '!=', $currentListingId);
+    //shuffle the listings and take the first 4
     $listings = $listings->shuffle()->take(4);
 @endphp
 

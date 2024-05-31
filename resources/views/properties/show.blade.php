@@ -86,6 +86,8 @@
         <hr class="border-t-2 border-gray-200 dark:border-gray-700">
     </div>
 
-    {{--include upsell component --}}
-    <x-upsell :listings="$listings" />
+    {{--include upsell component passing in all listings and current listing ID --}}
+    @include('components.upsell', ['listings' => $listings, 'currentListingId' => $listing->id])
+
+    {{--page divider--}}
 </x-app-layout>
