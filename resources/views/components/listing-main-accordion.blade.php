@@ -48,12 +48,24 @@
             </button>
         </h2>
         <div id="faqs-text-01" role="region" aria-labelledby="faqs-title-01" class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out" :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'">
-            <div class="overflow-hidden">
-                    @if($listing->reviews)
-                        {{--loop through 5 random reviews--}}
-                        @foreach($listing->reviews as $review)
-                            <x-review-card :review="$review" />
-                @endforeach
+            <div class="overflow-hidden mt-5">
+                @if($formattedReviews)
+                    <div
+                        x-data="{}"
+                        x-init="$nextTick(() => {
+                            let ul = $refs.logos;
+                            ul.insertAdjacentHTML('afterend', ul.outerHTML);
+                            ul.nextSibling.setAttribute('aria-hidden', 'true');
+                        })"
+                        class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_40px,_black_calc(100%-40px),transparent_100%)]">
+                        <ul x-ref="logos" class="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+                            @foreach($formattedReviews as $review)
+                                <li>
+                                    <x-review-card :review="$review"/>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @else
                     <p class="mb-2 text-gray-500 dark:text-gray-400">No reviews yet</p>
                 @endif

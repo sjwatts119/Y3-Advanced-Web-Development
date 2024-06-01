@@ -8,7 +8,7 @@
     </x-slot>
 
     <div class="container mx-auto w-11/12 lg:w-3/4 bg-white rounded-2xl mt-5">
-        <x-listing-main :listing="$listing" />
+        <x-listing-main :listing="$listing" :formattedReviews="$formattedReviews" />
     </div>
 
     {{--page divider--}}
