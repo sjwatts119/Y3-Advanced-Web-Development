@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyListingController;
 use Illuminate\Support\Facades\Route;
@@ -16,10 +18,11 @@ Route::get('/properties', [PropertyListingController::class, 'index'])->name('pr
 //make a route to properties.index to show a specific property listing
 Route::get('/properties/{slug}', [PropertyListingController::class, 'show'])->name('properties.show');
 
-//create enquiries route
-Route::get('/enquiries', function () {
-    return view('enquiries');
-})->name('enquiries');
+//create a bookings route
+Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+
+//create a contact route
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
