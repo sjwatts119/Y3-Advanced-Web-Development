@@ -24,6 +24,11 @@ Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.ind
 //create a contact route
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 
+//create privacy policy route
+Route::get('/privacy', function () {
+    return view('privacy-policy');
+})->name('privacy-policy');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
