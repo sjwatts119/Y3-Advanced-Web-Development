@@ -1,8 +1,6 @@
 
 <x-app-layout>
-    {{--80$ width container margin auto--}}
-    <div class="w-3/4 mt-10 mx-auto bg-white rounded-xl">
-        {{--padding 6--}}
+    <div class="md:w-3/4 w-full mt-10 mx-auto bg-white md:rounded-xl">
             <div class="p-6">
                 <h1 class="text-2xl font-bold mb-4">Privacy Policy</h1>
                 <p class="text-sm mb-2">Effective Date: 1/11/2023</p>
@@ -76,8 +74,10 @@
                     <p class="text-sm">Scenario 1 Company</p>
                     <p class="text-sm">scenario1company@email.com</p>
                     <p class="text-sm">0123456789</p>
-                    <p class="text-sm">We reserve the right to update and modify this Privacy Policy as needed. Please check back periodically to stay informed about any changes.</p>
                 </div>
+
+                {{--we reserve the right to update this privacy policy at any time--}}
+                <p class="text-black bold">We reserve the right to update and modify this Privacy Policy as needed. Please check back periodically to stay informed about any changes.</p>
             </div>
         </div>
 </x-app-layout>
