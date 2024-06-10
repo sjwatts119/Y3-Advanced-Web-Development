@@ -71,9 +71,6 @@
                     <x-nav-link :href="route('login')">
                         {{ __('Log in') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('register')">
-                        {{ __('Register') }}
-                    </x-nav-link>
                 @endif
             </div>
 
@@ -137,9 +134,6 @@
             <div class="pt-2 pb-1 border-t border-gray-200 dark:border-gray-600">
                 <x-responsive-nav-link :href="route('login')">
                     {{ __('Log in') }}
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('register')">
-                    {{ __('Register') }}
                 </x-responsive-nav-link>
             </div>
         @endif
