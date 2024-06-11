@@ -6,7 +6,7 @@
                 @if($theme->getFirstMediaUrl())
                     <img src="{{ $theme->getFirstMediaUrl()}}" alt="{{ $theme->company_name }}" class="max-w-20 max-h-12" />
                 @else
-                    <x-application-logo class="block h-8 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                    <x-application-logo class="block h-12 w-auto fill-current text-gray-800 dark:text-gray-200" />
                 @endif
                 {{--add the application name from the env file for now--}}
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
