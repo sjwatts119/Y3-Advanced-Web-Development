@@ -4,7 +4,7 @@
             <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 {{--insert the logo component--}}
                 @if($theme->getFirstMediaUrl())
-                    <img src="{{ $theme->getFirstMediaUrl()}}" alt="{{ $theme->company_name }}" class="max-w-12 max-h-12" />
+                    <img src="{{ $theme->getFirstMediaUrl()}}" alt="{{ $theme->company_name }}" class="max-w-20 max-h-12" />
                 @else
                     <x-application-logo class="block h-8 w-auto fill-current text-gray-800 dark:text-gray-200" />
                 @endif

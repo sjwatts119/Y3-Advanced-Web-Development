@@ -21,7 +21,7 @@
                     @if($theme->getFirstMediaUrl())
                         <img src="{{ $theme->getFirstMediaUrl()}}" alt="{{ $theme->company_name }}" class="max-w-40 max-h-32" />
                     @else
-                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                        <x-application-logo class="w-40 h-32 fill-current text-gray-500" />
                     @endif
                 </a>
             </div>
