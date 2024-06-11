@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
             //pass the active theme to the navigation and footer layouts so we can use it in the views
             ['layouts.navigation', 'layouts.footer'],
             //pass in the active theme from the themes model
-            fn($view) => $view->with('theme', Theme::is_active())
+            fn($view) => $view->with('theme', Theme::getTheme())
         );
     }
 }

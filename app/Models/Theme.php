@@ -19,8 +19,17 @@ class Theme extends Model implements HasMedia
         'is_default',
     ];
 
-    public static function is_active(): self
+    public static function getTheme(): self
     {
-        return self::where('is_active', true)->first();
+        if(self::where('is_active', true)->exists()){
+            return self::where('is_active', true)->first();
+        }
+        else{
+            //we should make a new theme object with default company name and name if no active theme is found in the model
+            return new self([
+                'name' => 'Default Theme',
+                'company_name' => 'Default Company',
+            ]);
+        }
     }
 }
