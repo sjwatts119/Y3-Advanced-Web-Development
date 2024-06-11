@@ -23,7 +23,14 @@ class ThemeResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')->required()->minlength(3),
+                Forms\Components\TextInput::make('company_name')->required()->minlength(3),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('images')
+                    ->acceptedFileTypes(['image/*'])
+                    ->rules('required')
+                    ->maxFiles(1)
+                    ->optimize('webp')
+                    ->imageEditor(),
             ]);
     }
 
@@ -31,7 +38,14 @@ class ThemeResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')->label('Theme Name'),
+                Tables\Columns\TextColumn::make('company_name')->label('Company Name'),
+                Tables\Columns\ToggleColumn::make('is_active')->label('Active')->alignCenter()->sortable()
+                    ->beforeStateUpdated(function (Theme $theme) {
+                        //if the theme is being set to active, we need to make sure all other themes are set to inactive
+                        Theme::where('id', '!=', $theme->id)
+                            ->update(['is_active' => false]);
+                    }),
             ])
             ->filters([
                 //
@@ -67,4 +81,5 @@ class ThemeResource extends Resource
     {
         return auth()->user()->isAdmin();
     }
+
 }
