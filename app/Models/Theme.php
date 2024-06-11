@@ -18,4 +18,9 @@ class Theme extends Model implements HasMedia
         'is_active',
         'is_default',
     ];
+
+    public static function is_active(): self
+    {
+        return self::where('is_active', true)->first();
+    }
 }
