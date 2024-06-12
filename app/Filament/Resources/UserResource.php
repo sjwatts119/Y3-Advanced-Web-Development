@@ -39,18 +39,19 @@ class UserResource extends Resource
                         ->rule(Password::default()),
                     Forms\Components\Toggle::make('is_admin')->label('Admin'),
                 ]),
-                Section::make('Change Password')->schema([
-                    Forms\Components\TextInput::make('new_password')
-                    ->nullable()
-                    ->password()
+                Section::make('Change Password')
                     ->visibleOn('edit')
-                    ->rule(Password::default()),
-                    Forms\Components\TextInput::make('confirm_password')
-                    ->password()
-                    ->same('new_password')
-                    ->requiredWith('new_password')
-                ])
-            ]);
+                    ->schema([
+                        Forms\Components\TextInput::make('new_password')
+                        ->nullable()
+                        ->password()
+                        ->rule(Password::default()),
+                        Forms\Components\TextInput::make('confirm_password')
+                        ->password()
+                        ->same('new_password')
+                        ->requiredWith('new_password')
+                    ])
+                ]);
     }
 
     public static function table(Table $table): Table
