@@ -28,17 +28,18 @@ class UserResource extends Resource
     {;
         return $form
             ->schema([
-                Section::make('User Information')->schema([
-                    Forms\Components\TextInput::make('name')->required(),
-                    Forms\Components\TextInput::make('email')->email()->required()->unique(ignoreRecord: true),
-                    Forms\Components\TextInput::make('password')
-                        ->required()
-                        ->password()
-                        ->dehydrateStateUsing(fn ($state) => Hash::make($state))
-                        ->visibleOn('create')
-                        ->rule(Password::default()),
-                    Forms\Components\Toggle::make('is_admin')->label('Admin'),
-                ]),
+                Section::make('User Information')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')->required(),
+                        Forms\Components\TextInput::make('email')->email()->required()->unique(ignoreRecord: true),
+                        Forms\Components\TextInput::make('password')
+                            ->required()
+                            ->password()
+                            ->dehydrateStateUsing(fn ($state) => Hash::make($state))
+                            ->visibleOn('create')
+                            ->rule(Password::default()),
+                        Forms\Components\Toggle::make('is_admin')->label('Admin'),
+                    ]),
                 Section::make('Change Password')
                     ->visibleOn('edit')
                     ->schema([
@@ -69,7 +70,12 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                //we should prevent the user from deleting themselves
+                Tables\Actions\DeleteAction::make()
+                ->hidden(fn (User $user) => $user->is(auth()->user())),
+
+                Tables\Actions\EditAction::make()
+                    ->successNotificationTitle('User updated'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
