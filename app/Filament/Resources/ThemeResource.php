@@ -6,6 +6,7 @@ use App\Filament\Resources\ThemeResource\Pages;
 use App\Filament\Resources\ThemeResource\RelationManagers;
 use App\Models\Theme;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -23,14 +24,17 @@ class ThemeResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required()->minlength(3),
-                Forms\Components\TextInput::make('company_name')->required()->minlength(3),
-                Forms\Components\SpatieMediaLibraryFileUpload::make('images')
-                    ->acceptedFileTypes(['image/*'])
-                    ->rules('required')
-                    ->maxFiles(1)
-                    ->optimize('webp')
-                    ->imageEditor(),
+                Section::make('Theme')
+                    ->schema([
+                        Forms\Components\TextInput::make('name')->required()->minlength(3),
+                        Forms\Components\TextInput::make('company_name')->required()->minlength(3),
+                        Forms\Components\SpatieMediaLibraryFileUpload::make('images')
+                            ->acceptedFileTypes(['image/*'])
+                            ->rules('required')
+                            ->maxFiles(1)
+                            ->optimize('webp')
+                            ->imageEditor(),
+                        ])
             ]);
     }
 

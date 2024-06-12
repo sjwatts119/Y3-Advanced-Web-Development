@@ -46,7 +46,8 @@ class UserResource extends Resource
                         Forms\Components\TextInput::make('new_password')
                         ->nullable()
                         ->password()
-                        ->rule(Password::default()),
+                        ->rule(Password::default())
+                        ->hintIcon('heroicon-m-question-mark-circle', tooltip: 'Leave blank to keep the current password'),
                         Forms\Components\TextInput::make('confirm_password')
                         ->password()
                         ->same('new_password')

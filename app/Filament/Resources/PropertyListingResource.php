@@ -6,6 +6,7 @@ use App\Filament\Resources\PropertyListingResource\Pages;
 use App\Filament\Resources\PropertyListingResource\RelationManagers;
 use App\Models\PropertyListing;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -24,47 +25,49 @@ class PropertyListingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required()->minlength(3),
-                Forms\Components\TextInput::make('slug')->required()->minlength(3),
-                Forms\Components\RichEditor::make('property')->required()->minlength(3),
-                Forms\Components\RichEditor::make('local_area')->required()->minlength(3),
-                Forms\Components\RichEditor::make('accommodation')->required()->minlength(3),
-                Forms\Components\Repeater::make('reviews')
-                    ->schema(function () {
-                        return [
-                            Forms\Components\TextInput::make('name')->required()->minlength(3),
-                            //numeric input minimum of 1 and maximum of 5
-                            Forms\Components\TextInput::make('rating')->required()->numeric()->step(1)->minValue(1)->maxValue(5),
-                            Forms\Components\TextInput::make('review')->required()->minlength(3)->columnSpanFull(),
-                        ];
-                    })->columns(2)->collapsible(),
-                Forms\Components\TextInput::make('sleeps')->required()->numeric()->minlength(1),
-                Forms\Components\TextInput::make('location')->required()->minlength(3),
-                //we need an array of attributes for: Single Story, Multistory, Beach, Disability friendly, Family Friendly, Dog/Pets Allowed, Parking, Pool, Garden
-                Forms\Components\CheckboxList::make('attributes')
-                    ->options([
-                        'Single Story' => 'Single Story',
-                        'Multi Story' => 'Multi Story',
-                        'Beach Nearby' => 'Beach Nearby',
-                        'Disability Friendly' => 'Disability Friendly',
-                        'Family Friendly' => 'Family Friendly',
-                        'Pets Allowed' => 'Pets Allowed',
-                        'Parking' => 'Parking',
-                        'Pool' => 'Pool',
-                        'Garden' => 'Garden',
-                    ]),
-                //make a hidden field so we can store the user_id and fill it with the current user
-                Forms\Components\Hidden::make('user_id')
-                ->dehydrateStateUsing(function ($state) {
-                    return Auth::id();
-                }),
-                Forms\Components\SpatieMediaLibraryFileUpload::make('images')
-                    ->acceptedFileTypes(['image/*'])
-                    ->rules('required')
-                    ->maxFiles(10)
-                    ->optimize('webp')
-                    ->multiple()
-                    ->imageEditor(),
+                Section::make('Property Listing Details')->schema([
+                    Forms\Components\TextInput::make('name')->required()->minlength(3),
+                    Forms\Components\TextInput::make('slug')->required()->minlength(3),
+                    Forms\Components\Textarea::make('property')->required()->minlength(3),
+                    Forms\Components\Textarea::make('local_area')->required()->minlength(3),
+                    Forms\Components\Textarea::make('accommodation')->required()->minlength(3),
+                    Forms\Components\Repeater::make('reviews')
+                        ->schema(function () {
+                            return [
+                                Forms\Components\TextInput::make('name')->required()->minlength(3),
+                                //numeric input minimum of 1 and maximum of 5
+                                Forms\Components\TextInput::make('rating')->required()->numeric()->step(1)->minValue(1)->maxValue(5),
+                                Forms\Components\TextInput::make('review')->required()->minlength(3)->columnSpanFull(),
+                            ];
+                        })->columns(2)->collapsible(),
+                    Forms\Components\TextInput::make('sleeps')->required()->numeric()->minlength(1),
+                    Forms\Components\TextInput::make('location')->required()->minlength(3),
+                    //we need an array of attributes for: Single Story, Multistory, Beach, Disability friendly, Family Friendly, Dog/Pets Allowed, Parking, Pool, Garden
+                    Forms\Components\CheckboxList::make('attributes')
+                        ->options([
+                            'Single Story' => 'Single Story',
+                            'Multi Story' => 'Multi Story',
+                            'Beach Nearby' => 'Beach Nearby',
+                            'Disability Friendly' => 'Disability Friendly',
+                            'Family Friendly' => 'Family Friendly',
+                            'Pets Allowed' => 'Pets Allowed',
+                            'Parking' => 'Parking',
+                            'Pool' => 'Pool',
+                            'Garden' => 'Garden',
+                        ]),
+                    //make a hidden field so we can store the user_id and fill it with the current user
+                    Forms\Components\Hidden::make('user_id')
+                    ->dehydrateStateUsing(function ($state) {
+                        return Auth::id();
+                    }),
+                    Forms\Components\SpatieMediaLibraryFileUpload::make('images')
+                        ->acceptedFileTypes(['image/*'])
+                        ->rules('required')
+                        ->maxFiles(10)
+                        ->optimize('webp')
+                        ->multiple()
+                        ->imageEditor(),
+                ]),
             ]);
     }
 
