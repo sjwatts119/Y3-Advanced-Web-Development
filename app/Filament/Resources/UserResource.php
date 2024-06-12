@@ -102,4 +102,10 @@ class UserResource extends Resource
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
+
+    //only show the themes resource if the user is an admin
+    public static function canAccess(): bool
+    {
+        return auth()->user()->isAdmin();
+    }
 }
