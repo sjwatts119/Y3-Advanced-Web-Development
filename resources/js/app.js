@@ -1,6 +1,7 @@
 import './bootstrap';
 import 'flowbite';
 import GLightbox from "glightbox";
+import DateRangePicker from 'flowbite-datepicker/DateRangePicker'
 
 import Alpine from 'alpinejs';
 
@@ -14,4 +15,13 @@ const lightbox = GLightbox({
     autoplayVideos: true,
     selector: '.glightbox'
 });
+
+const dateRangePickerEl = document.getElementById('bookingDateRangePicker');
+new DateRangePicker(dateRangePickerEl, {
+    todayHighlight: true,
+    minDate : new Date(),
+    format: 'dd/mm/yyyy',
+    orientation: 'bottom',
+});
+
 

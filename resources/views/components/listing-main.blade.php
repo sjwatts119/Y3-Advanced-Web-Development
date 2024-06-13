@@ -66,6 +66,13 @@
 
             <x-listing-main-accordion :listing="$listing" :formattedReviews="$formattedReviews" />
 
+            {{--make a button to book the listing--}}
+            <div class="flex w-full">
+                <a href="{{ route('properties.book', $listing->slug) }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-400 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 w-full">
+                    Book
+                </a>
+            </div>
+
         </div>
     </div>
 </div>

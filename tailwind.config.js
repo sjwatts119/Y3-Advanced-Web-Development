@@ -8,6 +8,7 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './node_modules/flowbite/**/*.js',
+        './node_modules/flowbite-datepicker/**/*.js',
     ],
 
     //darkMode: 'selector',
@@ -31,6 +32,6 @@ export default {
 
     plugins: [
         forms,
-        require('flowbite/plugin')
+        require('flowbite/plugin'),
     ],
 };
