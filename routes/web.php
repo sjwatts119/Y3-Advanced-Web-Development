@@ -21,6 +21,9 @@ Route::get('/properties/{slug}', [PropertyListingController::class, 'show'])->na
 //create a route to book a property
 Route::get('/properties/{slug}/book', [PropertyListingController::class, 'book'])->name('properties.book');
 
+//create a route to store a booking
+Route::post('/properties/{slug}/book', [PropertyListingController::class, 'storeBooking'])->name('properties.storeBooking');
+
 //create a bookings route
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 

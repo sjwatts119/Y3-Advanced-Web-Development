@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBookingRequest;
 use App\Models\PropertyListing;
+Use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class PropertyListingController extends Controller
@@ -22,6 +24,30 @@ class PropertyListingController extends Controller
     public function book($slug){
         //we don't want to attempt an upsell on the booking page, so don't need to pass all listings
         return view('properties.book', ['listing' => PropertyListing::where('slug', $slug)->first()]);
+    }
+
+    public function storeBooking(StoreBookingRequest $request)
+    {
+        $validatedData = $request->validated();
+
+        //create a new booking object
+        $booking = new Booking();
+        $booking->property_listing_id = $validatedData['listing_id'];
+        $booking->start_date = $validatedData['start_date'];
+        $booking->end_date = $validatedData['end_date'];
+        $booking->user_name = $validatedData['name'];
+        $booking->user_email = $validatedData['email'];
+        $booking->user_phone_number = $validatedData['phone'];
+        $booking->message = $validatedData['notes'];
+
+        //if booking is successful, redirect to the bookings page
+        if($booking->save()){
+            return redirect()->route('bookings.index')->with('success', 'Booking successful');
+        }
+        else{
+            //if booking fails, redirect back to the booking page with an error message
+            return redirect()->back()->with('error', 'Booking failed');
+        }
     }
 
     //used to format the reviews for the show view
