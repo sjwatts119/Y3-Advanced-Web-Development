@@ -17,11 +17,13 @@ const lightbox = GLightbox({
 });
 
 const dateRangePickerEl = document.getElementById('bookingDateRangePicker');
-new DateRangePicker(dateRangePickerEl, {
-    todayHighlight: true,
-    minDate : new Date(),
-    format: 'dd/mm/yyyy',
-    orientation: 'bottom',
-});
+if (dateRangePickerEl) {
+    new DateRangePicker(dateRangePickerEl, {
+        todayHighlight: true,
+        minDate : new Date(),
+        format: 'dd/mm/yyyy',
+        orientation: 'bottom',
+    });
+}
 
 
