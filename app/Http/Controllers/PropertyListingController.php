@@ -26,6 +26,17 @@ class PropertyListingController extends Controller
         return view('properties.book', ['listing' => PropertyListing::where('slug', $slug)->first()]);
     }
 
+    public function success(){
+        //we must only show the success page if the user has just booked a property, they should not be able to access this page directly
+        if(session()->has('booking_success')){
+            session()->forget('booking_success');
+            return view('properties.success');
+        }
+        else{
+            return redirect()->route('home');
+        }
+    }
+
     public function storeBooking(StoreBookingRequest $request)
     {
         $validatedData = $request->validated();
@@ -42,7 +53,9 @@ class PropertyListingController extends Controller
 
         //if booking is successful, redirect to the bookings page
         if($booking->save()){
-            return redirect()->route('bookings.index')->with('success', 'Booking successful');
+            session()->put('booking_success', true);
+            $slug = $booking->propertyListing->slug;
+            return redirect()->route('properties.success', ['slug' => $slug])->with('success', 'Booking successful');
         }
         else{
             //if booking fails, redirect back to the booking page with an error message

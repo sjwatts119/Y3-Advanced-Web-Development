@@ -2,6 +2,7 @@ import './bootstrap';
 import 'flowbite';
 import GLightbox from "glightbox";
 import DateRangePicker from 'flowbite-datepicker/DateRangePicker'
+import CanvasConfetti from 'canvas-confetti';
 
 import Alpine from 'alpinejs';
 
@@ -25,5 +26,19 @@ if (dateRangePickerEl) {
         orientation: 'bottom',
     });
 }
+
+if(document.getElementById('confetti')) {
+    const confetti = new CanvasConfetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+
+
+
+
+
+
 
 
