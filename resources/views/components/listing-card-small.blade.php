@@ -13,7 +13,7 @@
         @if($listing->GetFirstMediaUrl())
             <img class="object-cover w-full h-48 m-auto" src="{{ $listing->GetFirstMediaUrl() }}" alt="{{ $listing->name }}">
         @else
-            <img class="object-cover w-full h-48 m-auto" src="https://via.placeholder.com/150" alt="{{ $listing->name }}">
+            <img class="object-cover w-full h-48 m-auto" src="https://placehold.co/400" alt="{{ $listing->name }}">
         @endif
     </div>
     <div class="w-full lg:min-h-0 flex flex-col p-4 leading-normal pr-10">
