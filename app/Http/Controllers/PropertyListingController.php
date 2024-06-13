@@ -19,6 +19,11 @@ class PropertyListingController extends Controller
         ]);
     }
 
+    public function book($slug){
+        //we don't want to attempt an upsell on the booking page, so don't need to pass all listings
+        return view('properties.book', ['listing' => PropertyListing::where('slug', $slug)->first()]);
+    }
+
     //used to format the reviews for the show view
     public function formatReviews($reviews){
         //are there any reviews?

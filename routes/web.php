@@ -18,6 +18,9 @@ Route::get('/properties', [PropertyListingController::class, 'index'])->name('pr
 //make a route to properties.index to show a specific property listing
 Route::get('/properties/{slug}', [PropertyListingController::class, 'show'])->name('properties.show');
 
+//create a route to book a property
+Route::get('/properties/{slug}/book', [PropertyListingController::class, 'book'])->name('properties.book');
+
 //create a bookings route
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 
