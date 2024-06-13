@@ -44,7 +44,16 @@ class BookingResource extends Resource
                 Tables\Columns\TextColumn::make('start_date')
                     ->label('Start to End Date')
                     ->formatStateUsing(function (Booking $value) {return $value->start_date . ' - ' . $value->end_date;})
+                    ->badge(),
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Current Status')
                     ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'requested' => 'warning',
+                        'approved' => 'success',
+                        'rejected' => 'danger',
+                        default => 'gray',
+                    })
             ])
             ->filters([
                 //

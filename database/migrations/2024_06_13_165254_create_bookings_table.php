@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('user_email');
             $table->string('user_phone_number')->nullable();
             $table->text('message');
+            $table->enum('status', ['requested', 'approved', 'rejected'])->default('requested');
             $table->timestamps();
         });
     }
