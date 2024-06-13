@@ -29,7 +29,7 @@ class PropertyListingResource extends Resource
             ->schema([
                 Section::make('Property Listing Details')->schema([
                     Forms\Components\TextInput::make('name')->required()->minlength(3),
-                    Forms\Components\TextInput::make('slug')->required()->minlength(3)->unique(),
+                    Forms\Components\TextInput::make('slug')->required()->minlength(3)->unique(ignoreRecord: true),
                     Forms\Components\Textarea::make('property')->required()->minlength(3),
                     Forms\Components\Textarea::make('local_area')->required()->minlength(3),
                     Forms\Components\Textarea::make('accommodation')->required()->minlength(3),
