@@ -6,8 +6,8 @@ use App\Filament\Resources\BookingResource\Pages;
 use App\Filament\Resources\BookingResource\RelationManagers;
 use App\Models\Booking;
 use App\Models\PropertyListing;
-use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Infolists;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -22,11 +22,19 @@ class BookingResource extends Resource
 
     protected static ?string $navigationGroup = 'User';
 
-    public static function form(Form $form): Form
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return $form
+        return $infolist
             ->schema([
-                //
+                Infolists\Components\Section::make('Booking Details')->columns(2)->schema([
+                    Infolists\Components\TextEntry::make('property_listing_id'),
+                    Infolists\Components\TextEntry::make('user_name'),
+                    Infolists\Components\TextEntry::make('user_email'),
+                    Infolists\Components\TextEntry::make('user_phone_number'),
+                    Infolists\Components\TextEntry::make('start_date'),
+                    Infolists\Components\TextEntry::make('end_date'),
+                    Infolists\Components\TextEntry::make('message')->columnSpan(2),
+                ])
             ]);
     }
 
@@ -40,11 +48,13 @@ class BookingResource extends Resource
                     ->label('Property Name')
                     ->formatStateUsing(function (Booking $value) {return PropertyListing::class::find($value->property_listing_id)->name;}),
                 Tables\Columns\TextColumn::make('user_name')
-                    ->label('Name'),
+                    ->label('Name')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('start_date')
                     ->label('Start to End Date')
                     ->formatStateUsing(function (Booking $value) {return $value->start_date . ' - ' . $value->end_date;})
-                    ->badge(),
+                    ->badge()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->label('Current Status')
                     ->badge()
@@ -54,17 +64,16 @@ class BookingResource extends Resource
                         'rejected' => 'danger',
                         default => 'gray',
                     })
+                    ->searchable()
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+
             ]);
     }
 
@@ -82,5 +91,10 @@ class BookingResource extends Resource
             'create' => Pages\CreateBooking::route('/create'),
             'edit' => Pages\EditBooking::route('/{record}/edit'),
         ];
+    }
+
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }
