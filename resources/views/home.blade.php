@@ -44,7 +44,9 @@
         </div>
     </section>
 
-    <section class="w-full bg-white">
+    <div class="bg-gradient-to-r from-blue-500 to-pink-500 pt-1"></div>
+
+    <section class="w-full bg-white pb-40">
         {{--why us?--}}
         <div class="py-12 px-4 mx-auto max-w-screen-xl">
             <h2 class="mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white">Why Choose Us?</h2>
@@ -85,12 +87,21 @@
         </div>
     </section>
 
+    <div class="bg-gradient-to-r from-blue-500 to-pink-500 pt-1"></div>
 
+    {{--video section with bg-gray-100--}}
 
-
-
-
-
+    <section class="w-full bg-gray-100">
+        <div class="py-12 px-4 mx-auto max-w-screen-xl">
+            <h2 class="mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white">Watch Our Video</h2>
+            <div class="w-full">
+                {{-- make a container for the youtube video and center it --}}
+                <div class="flex items-center justify-center rounded-xl h-[500px] sm:h-[700px]">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/L7iyJzwWb0c?si=zBfgTr6aHCGzY_GT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </x-home-layout>
 
