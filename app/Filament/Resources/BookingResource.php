@@ -34,6 +34,24 @@ class BookingResource extends Resource
                     Infolists\Components\TextEntry::make('start_date'),
                     Infolists\Components\TextEntry::make('end_date'),
                     Infolists\Components\TextEntry::make('message')->columnSpan(2),
+                    Infolists\Components\Actions::make([
+                        Infolists\Components\Actions\Action::make('Approve')
+                            ->icon('heroicon-s-check')
+                            ->color('success')
+                            ->action(function (Booking $booking) {
+                                $booking->status = 'approved';
+                                $booking->save();
+                                //MAIL EVENT TODO
+                            }),
+                        Infolists\Components\Actions\Action::make('Reject')
+                            ->icon('heroicon-s-x-mark')
+                            ->color('danger')
+                            ->action(function (Booking $booking) {
+                                $booking->status = 'rejected';
+                                $booking->save();
+                                //MAIL EVENT TODO
+                            }),
+                    ])
                 ])
             ]);
     }
@@ -70,7 +88,7 @@ class BookingResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                Tables\Actions\ViewAction::make()->label('Manage'),
             ])
             ->bulkActions([
 
