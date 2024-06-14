@@ -9,7 +9,7 @@ use App\Models\PropertyListing;
 
 //create home route allowing both unauthorized and authorized users to access the home page
 Route::get('/', function () {
-    return view('home');
+    return view('home')->with('listings', PropertyListing::all());
 })->name('home');
 
 //create properties route
