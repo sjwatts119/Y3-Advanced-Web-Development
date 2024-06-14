@@ -31,7 +31,7 @@
 
     <section class="w-full bg-gray-100 pb-20">
         <div class="py-12 px-4 mx-auto max-w-screen-xl">
-            <a href="{{route('properties.index')}}"><h2 class="hover:underline hover:text-black/70 mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white">Our Properties</h2></a>
+            <a href="{{route('properties.index')}}"><h2 class="hover:underline hover:text-black/70 mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center">Our Properties</h2></a>
             @if($listings)
                 {{--we should align the cards in a grid where it builds from the center and not from the left--}}
                 {{--it should have three columns on large screens, two on medium screens, and one on small screens--}}
@@ -49,7 +49,7 @@
     <section class="w-full bg-white pb-40">
         {{--why us?--}}
         <div class="py-12 px-4 mx-auto max-w-screen-xl">
-            <h2 class="mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white">Why Choose Us?</h2>
+            <h2 class="mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center">Why Choose Us?</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div class="flex flex-col items-center justify-center space-y-4">
                     <svg class="w-16 h-16 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -90,10 +90,9 @@
     <div class="bg-gradient-to-r from-blue-500 to-pink-500 pt-1"></div>
 
     {{--video section with bg-gray-100--}}
-
     <section class="w-full bg-gray-100">
-        <div class="py-12 px-4 mx-auto max-w-screen-xl">
-            <h2 class="mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white">Watch Our Video</h2>
+        <div class="py-12 pb-32 px-4 mx-auto max-w-screen-xl">
+            <h2 class="mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center">Watch Our Video</h2>
             <div class="w-full">
                 {{-- make a container for the youtube video and center it --}}
                 <div class="flex items-center justify-center rounded-xl h-[500px] sm:h-[700px]">
@@ -105,9 +104,9 @@
 
     <div class="bg-gradient-to-r from-blue-500 to-pink-500 pt-1"></div>
 
+    {{--get in touch jumbotron--}}
     <section>
-        {{--get in touch jumbotron--}}
-        <div class="py-12 px-4 mx-auto max-w-screen-xl text-center">
+        <div class="py-32 px-4 mx-auto max-w-screen-xl text-center">
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white">Get In Touch</h2>
             <p class="mb-8 text-lg font-normal text-gray-500 dark:text-gray-400">We would love to hear from you. If you have any questions or would like to book a property, please get in touch.</p>
             <a href="{{route('contact.index')}}" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:opacity-80 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
