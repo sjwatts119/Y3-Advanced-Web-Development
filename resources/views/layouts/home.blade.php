@@ -15,17 +15,24 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased">
-<div class="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
-<div class="absolute top-0 z-[-11] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
+    <div class="w-full">
 
-    <div class="min-h-screen pb-10">
-    @include('layouts.navigation-home')
+        @include('layouts.navigation-home')
+        {{--make a container for the jumbotron and the content, yield to header--}}
+        @if (isset($header))
+            {{ $header }}
+        @endif
+
+    </div>
+
+    <div class="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="absolute top-0 z-[-11] h-full w-full rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
+
 
     <!-- Page Content -->
     <main>
         {{ $slot }}
     </main>
 
-</div>
 </body>
 </html>
