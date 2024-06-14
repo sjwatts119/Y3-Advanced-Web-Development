@@ -34,7 +34,6 @@ class ThemeResource extends Resource
                             ->acceptedFileTypes(['image/*'])
                             ->rules('required')
                             ->maxFiles(1)
-                            ->optimize('webp')
                             ->imageEditor(),
                         ])
             ]);

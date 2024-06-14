@@ -70,7 +70,6 @@ class PropertyListingResource extends Resource
                         ->acceptedFileTypes(['image/*'])
                         ->rules('required')
                         ->maxFiles(10)
-                        ->optimize('webp')
                         ->multiple()
                         ->imageEditor(),
                 ]),
