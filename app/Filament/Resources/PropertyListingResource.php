@@ -29,7 +29,11 @@ class PropertyListingResource extends Resource
             ->schema([
                 Section::make('Property Listing Details')->schema([
                     Forms\Components\TextInput::make('name')->required()->minlength(3),
-                    Forms\Components\TextInput::make('slug')->required()->minlength(3)->unique(ignoreRecord: true),
+                    Forms\Components\TextInput::make('slug')
+                        ->required()
+                        ->minlength(3)
+                        ->unique(ignoreRecord: true)
+                        ->hintIcon('heroicon-m-question-mark-circle', tooltip: 'This is the URL friendly version of the name. e.g domain.com/properties/YOUR-SLUG-HERE. It must be unique.'),
                     Forms\Components\Textarea::make('property')->required()->minlength(3),
                     Forms\Components\Textarea::make('local_area')->required()->minlength(3),
                     Forms\Components\Textarea::make('accommodation')->required()->minlength(3),
