@@ -63,7 +63,7 @@ class BookingResource extends Resource
                 //we should have the following columns:
                 //Property Name, User Name, Start to End Date, Current Status
                 Tables\Columns\TextColumn::make('property_listing_id')
-                    ->label('Property Name')
+                    ->label('Property')
                     ->formatStateUsing(function (Booking $value) {return PropertyListing::class::find($value->property_listing_id)->name;}),
                 Tables\Columns\TextColumn::make('user_name')
                     ->label('Name')
@@ -73,8 +73,13 @@ class BookingResource extends Resource
                     ->formatStateUsing(function (Booking $value) {return $value->start_date . ' - ' . $value->end_date;})
                     ->badge()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Request Date')
+                    ->formatStateUsing(function(Booking $value) {return $value->created_at->format('d/m/Y');})
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('status')
-                    ->label('Current Status')
+                    ->label('Status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'requested' => 'warning',
