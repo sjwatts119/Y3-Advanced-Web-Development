@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('property_listings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->text('property');
             $table->text('local_area');
@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('location');
             //we need an array of attributes for: Single Story, Multistory, Beach, Disability friendly, Family Friendly, Dog/Pets Allowed, Parking, Pool, Garden
             $table->json('attributes');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

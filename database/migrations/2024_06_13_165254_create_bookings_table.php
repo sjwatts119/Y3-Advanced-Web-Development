@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             //we need foreign key to PropertyListing, start date, end date, user's name, user's email, user's phone number (nullable), and a message
-            $table->foreignId('property_listing_id')->references('id')->on('property_listings');
+            $table->foreignId('property_listing_id')->constrained('property_listings')->onDelete('cascade');
             $table->date('start_date');
             $table->date('end_date');
             $table->string('user_name');

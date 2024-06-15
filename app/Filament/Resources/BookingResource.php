@@ -64,7 +64,9 @@ class BookingResource extends Resource
                 //Property Name, User Name, Start to End Date, Current Status
                 Tables\Columns\TextColumn::make('property_listing_id')
                     ->label('Property')
-                    ->formatStateUsing(function (Booking $value) {return PropertyListing::class::find($value->property_listing_id)->name;}),
+                    ->formatStateUsing(function (Booking $value) {
+                        return PropertyListing::class::find($value->property_listing_id)->name ?? 'Property Not Found';
+                    }),
                 Tables\Columns\TextColumn::make('user_name')
                     ->label('Name')
                     ->searchable(),

@@ -13,7 +13,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class PropertyListing extends Model implements HasMedia
 {
     use HasFactory;
-    use SoftDeletes;
     use InteractsWithMedia;
 
     public $casts = [
