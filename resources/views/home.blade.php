@@ -31,13 +31,9 @@
     <section class="w-full bg-gray-100 pb-20">
         <div class="py-12 px-4 mx-auto max-w-screen-xl">
             <a href="{{route('properties.index')}}"><h2 class="hover:text-blue-700 mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center transition">Our Properties</h2></a>
-            @if($listings)
-                <div class="border-black rounded-xl">
-                    <x-featured-carousel :listings="$listings" />
-                </div>
-            @else
-                <p class="text-lg font-normal text-gray-500 dark:text-gray-400">No properties found.</p>
-            @endif
+            <div class="border-black rounded-xl">
+                <x-featured-carousel :listings="$listings" />
+            </div>
         </div>
     </section>
 

@@ -30,7 +30,7 @@
         </div>
     @else
         <div class="container mx-auto w-11/12 lg:w-3/4 pb-10">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white pt-10">No listings found.</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white pt-10">No property listings found :(</h2>
         </div>
     @endif
 
