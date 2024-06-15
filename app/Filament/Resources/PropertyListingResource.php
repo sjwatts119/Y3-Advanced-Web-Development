@@ -80,9 +80,13 @@ class PropertyListingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
                 //Show the user's name instead of the user_id
-                Tables\Columns\TextColumn::make('user.name')->label('Created by'),
+                Tables\Columns\TextColumn::make('user.name')->label('Created by')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
             ])
