@@ -2,7 +2,7 @@
 
 {{--put the jumbotron inside the header--}}
     <x-slot name="header">
-        <section class="">
+        <section class="min-h-[calc(85vh)] flex flex-col justify-between">
             <div class="py-12 px-4 mx-auto max-w-screen-xl text-center sm:py-72">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Welcome to {{$theme->company_name}}</h1>
                 <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">We provide premium holiday cottages and unique converted buildings for a memorable stay. Explore our portfolio that includes a castle, a converted lighthouse, and a WWII military base.</p>
@@ -18,13 +18,12 @@
                     </a>
                 </div>
             </div>
+            <div class="flex justify-center pb-4">
+                <svg class="w-6 h-6 text-gray-500 dark:text-gray-200 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
         </section>
-        {{--animated scroll down prompt--}}
-        <div class="absolute bottom-30 left-0 right-0 flex justify-center pb-4">
-            <svg class="w-6 h-6 text-gray-500 dark:text-gray-200 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
-        </div>
     </x-slot>
 
     <div class="bg-gradient-to-b from-transparent to-gray-100 pt-20"></div>
