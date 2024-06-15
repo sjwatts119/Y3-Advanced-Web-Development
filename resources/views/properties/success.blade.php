@@ -9,7 +9,7 @@
 
     <div class="flex items-center justify-center">
         {{--add a button to return to the home page--}}
-        <a href="{{route('properties.index')}}" class="inline-flex items-center justify-center px-4 py-2 mt-4 text-sm font-medium text-white bg-blue-700 border border-transparent rounded-md shadow-sm hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        <a href="{{route('properties.index')}}" class="inline-flex items-center justify-center px-4 py-2 mt-4 text-sm font-medium text-white rounded-md shadow-sm bg-gradient-to-r from-blue-500 to-pink-500 opacity-80 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
             Return to Home
         </a>
     </div>
