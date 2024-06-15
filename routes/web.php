@@ -4,12 +4,16 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyListingController;
+use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 use App\Models\PropertyListing;
 
 //create home route allowing both unauthorized and authorized users to access the home page
 Route::get('/', function () {
-    return view('home')->with('listings', PropertyListing::all());
+    return view('home')->with([
+        'listings' => PropertyListing::all(),
+        'bookings' => Booking::all()
+    ]);
 })->name('home');
 
 //create properties route
