@@ -4,16 +4,16 @@
     <x-slot name="header">
         <section class="min-h-[calc(85vh)] flex flex-col justify-between">
             <div class="py-12 px-4 mx-auto max-w-screen-xl text-center sm:py-72">
-                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Welcome to {{$theme->company_name}}</h1>
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white hover:scale-110 transition-transform duration-200">Welcome to {{$theme->company_name}}</h1>
                 <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">We provide premium holiday cottages and unique converted buildings for a memorable stay. Explore our portfolio that includes a castle, a converted lighthouse, and a WWII military base.</p>
                 <div class="py-5 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                    <a href="{{route('properties.index')}}" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:opacity-80 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                    <a href="{{route('properties.index')}}" class="transition inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:opacity-80 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                         Explore
                         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                         </svg>
                     </a>
-                    <a href="{{route('contact.index')}}" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70">
+                    <a href="{{route('contact.index')}}" class="transition py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70">
                         Contact Us
                     </a>
                 </div>
@@ -30,10 +30,8 @@
 
     <section class="w-full bg-gray-100 pb-20">
         <div class="py-12 px-4 mx-auto max-w-screen-xl">
-            <a href="{{route('properties.index')}}"><h2 class="hover:underline hover:text-black/70 mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center">Our Properties</h2></a>
+            <a href="{{route('properties.index')}}"><h2 class="hover:text-blue-700 mb-8 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center transition">Our Properties</h2></a>
             @if($listings)
-                {{--we should align the cards in a grid where it builds from the center and not from the left--}}
-                {{--it should have three columns on large screens, two on medium screens, and one on small screens--}}
                 <div class="border-black rounded-xl">
                     <x-featured-carousel :listings="$listings" />
                 </div>
@@ -137,7 +135,7 @@
             <div class="w-full">
                 {{-- make a container for the youtube video and center it --}}
                 <div class="flex items-center justify-center rounded-xl h-[500px] sm:h-[700px]">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/L7iyJzwWb0c?si=zBfgTr6aHCGzY_GT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/L7iyJzwWb0c?si=zBfgTr6aHCGzY_GT" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -150,7 +148,7 @@
         <div class="py-32 px-4 mx-auto max-w-screen-xl text-center">
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-4xl lg:text-5xl dark:text-white">Get In Touch</h2>
             <p class="mb-8 text-lg font-normal text-gray-500 dark:text-gray-400">We would love to hear from you. If you have any questions or would like to book a property, please get in touch.</p>
-            <a href="{{route('contact.index')}}" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:opacity-80 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+            <a href="{{route('contact.index')}}" class="transition inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-gradient-to-r from-blue-500 to-pink-500 hover:opacity-80 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                 Contact Us
                 <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>

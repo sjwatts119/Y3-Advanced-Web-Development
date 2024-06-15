@@ -8,7 +8,7 @@
         'attributes',
 --}}
 
-<a href="{{ route('properties.show', $listing->slug) }}" class="max-w-96 rounded-2xl overflow-hidden h-full flex flex-col items-center bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-2xl">
+<a href="{{ route('properties.show', $listing->slug) }}" class="max-w-96 rounded-2xl overflow-hidden h-full flex flex-col items-center bg-white shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 dark:border-gray-700 dark:bg-gray-800 rounded-2xl">
     <div class="overflow-hidden w-full ">
         @if($listing->GetFirstMediaUrl())
             <img class="object-cover w-full h-48 m-auto" src="{{ $listing->GetFirstMediaUrl() }}" alt="{{ $listing->name }}">

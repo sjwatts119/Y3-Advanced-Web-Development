@@ -2,8 +2,8 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{--add a return link--}}
-            <a href="{{ route('properties.index') }}" class="text-blue-500 hover:text-blue-700">Properties</a> /
-            <a href="{{ route('properties.show', $listing->slug) }}" class="text-blue-500 hover:text-blue-700">{{ __($listing->name) }}</a> /
+            <a href="{{ route('properties.index') }}" class="text-blue-500 hover:text-blue-700 transition">Properties</a> /
+            <a href="{{ route('properties.show', $listing->slug) }}" class="text-blue-500 hover:text-blue-700 transition">{{ __($listing->name) }}</a> /
             {{ __('Book') }}
         </h2>
     </x-slot>
@@ -64,8 +64,8 @@
                             <textarea id="notes" name="notes" rows="3" class="mt-1 focus-ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                         </div>
                         <div class="mt-4">
-                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                Book
+                            <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                                Submit Booking
                             </button>
                         </div>
                     </div>

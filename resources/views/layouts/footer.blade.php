@@ -16,17 +16,17 @@
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                 <li>
-                    <a href="{{route('home')}}" class="hover:underline me-4 md:me-6">Home</a>
+                    <a href="{{route('home')}}" class="transition hover:underline me-4 md:me-6 hover:text-black">Home</a>
                 </li>
                 <li>
-                    <a href="{{route('privacy-policy')}}" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    <a href="{{route('privacy-policy')}}" class="transition hover:underline me-4 md:me-6 hover:text-black">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="{{route('contact.index')}}" class="hover:underline">Contact Us</a>
+                    <a href="{{route('contact.index')}}" class="transition hover:underline me-4 md:me-6 hover:text-black">Contact Us</a>
                 </li>
             </ul>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="{{route('home')}}" class="hover:underline">{{ $theme->company_name }}</a>. All Rights Reserved.</span>
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="{{route('home')}}" class="hover:underline hover:text-black transition">{{ $theme->company_name }}</a>. All Rights Reserved.</span>
     </div>
 </footer>
