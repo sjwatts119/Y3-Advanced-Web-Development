@@ -39,7 +39,7 @@ class ContactDetailsResource extends Resource
                 Tables\Columns\TextColumn::make('email')->label('Email'),
                 Tables\Columns\ToggleColumn::make('is_active')->label('Active')->alignCenter()->sortable()
                     ->beforeStateUpdated(function (ContactDetails $contactDetails) {
-                        //if the theme is being set to active, we need to make sure all other themes are set to inactive
+                        //if the set of contact details is being set to active, we need to make sure all other themes are set to inactive
                         ContactDetails::where('id', '!=', $contactDetails->id)
                             ->update(['is_active' => false]);
                     }),
