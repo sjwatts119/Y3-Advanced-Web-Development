@@ -37,6 +37,9 @@ Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.ind
 //create a contact route
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 
+//create a route to store a contact
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
 //create privacy policy route
 Route::get('/privacy', function () {
     return view('privacy-policy');

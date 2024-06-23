@@ -12,4 +12,12 @@ class ContactController extends Controller
     {
         return view('contact.index')->with('contactDetails', ContactDetails::where('is_active', true)->first());
     }
+
+    public function store(Request $request)
+    {
+        $contactDetails = ContactDetails::where('is_active', true)->first();
+        $contactDetails->update($request->all());
+
+        return redirect()->route('contact.index')->with('success', 'Thank you for contacting us. We will get back to you shortly.');
+    }
 }
