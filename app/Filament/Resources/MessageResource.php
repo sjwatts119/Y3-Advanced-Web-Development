@@ -5,8 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\MessageResource\Pages;
 use App\Filament\Resources\MessageResource\RelationManagers;
 use App\Models\Message;
-use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Infolists;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -21,11 +21,36 @@ class MessageResource extends Resource
 
     protected static ?string $navigationGroup = 'User';
 
-    public static function form(Form $form): Form
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return $form
+        return $infolist
             ->schema([
-                //
+                Infolists\Components\Section::make('Message Details')->columns(2)->schema([
+                    Infolists\Components\TextEntry::make('email'),
+                    Infolists\Components\TextEntry::make('phone'),
+                    Infolists\Components\TextEntry::make('subject'),
+                    Infolists\Components\TextEntry::make('message')->columnSpan(2),
+                    Infolists\Components\TextEntry::make('status'),
+                    Infolists\Components\Actions::make([
+                        Infolists\Components\Actions\Action::make('Mark as Closed')
+                            ->icon('heroicon-s-x-mark')
+                            ->color('danger')
+                            ->action(function (Message $message) {
+                                $message->status = 'closed';
+                                $message->save();
+                                //MAIL EVENT TODO
+                            })->visible(fn (Message $message) => $message->status !== 'closed'),
+
+                        Infolists\Components\Actions\Action::make('Mark as Open')
+                            ->icon('heroicon-s-check')
+                            ->color('success')
+                            ->action(function (Message $message) {
+                                $message->status = 'open';
+                                $message->save();
+                                //MAIL EVENT TODO
+                            })->visible(fn (Message $message) => $message->status !== 'open'),
+                    ])
+                ])
             ]);
     }
 
@@ -35,14 +60,14 @@ class MessageResource extends Resource
             ->columns([
                 //we should show the subject, date sent, and current status of the message
                 Tables\Columns\TextColumn::make('subject'),
-                Tables\Columns\TextColumn::make('created_at')->time()->sortable(),
+                Tables\Columns\TextColumn::make('created_at')->date()->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->sortable()
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'new' => 'warning',
                         'open' => 'success',
-                        'replied' => 'gray',
+                        'closed' => 'gray',
                         default => 'danger',
                     })
                     ->formatStateUsing(
