@@ -17,7 +17,7 @@ class ContactDetailsResource extends Resource
 {
     protected static ?string $model = ContactDetails::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-identification';
 
     protected static ?string $navigationGroup = 'Admin';
 
