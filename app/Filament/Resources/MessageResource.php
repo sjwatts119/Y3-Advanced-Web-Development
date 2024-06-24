@@ -65,8 +65,8 @@ class MessageResource extends Resource
                     ->sortable()
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'new' => 'warning',
-                        'open' => 'success',
+                        'new' => 'success',
+                        'open' => 'warning',
                         'closed' => 'gray',
                         default => 'danger',
                     })
@@ -82,6 +82,14 @@ class MessageResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()
+                ->mutateRecordDataUsing(function (array $data, Message $record) {
+                    //if the message is new, we should mark it as open
+                    if($record->status === 'new'){
+                        $record->status = 'open';
+                        $record->save();
+                    }
+                    return $data;
+                })
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
