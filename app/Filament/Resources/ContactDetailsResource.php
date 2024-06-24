@@ -19,6 +19,8 @@ class ContactDetailsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Admin';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -71,5 +73,11 @@ class ContactDetailsResource extends Resource
             'create' => Pages\CreateContactDetails::route('/create'),
             'edit' => Pages\EditContactDetails::route('/{record}/edit'),
         ];
+    }
+
+    //only show sets of contact details if the user is an admin
+    public static function canAccess(): bool
+    {
+        return auth()->user()->isAdmin();
     }
 }
