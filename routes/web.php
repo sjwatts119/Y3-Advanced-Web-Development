@@ -40,6 +40,9 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 //create a route to store a contact
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+//create a route to show if the message was sent successfully
+Route::get('/contact/success', [ContactController::class, 'success'])->name('contact.success');
+
 //create privacy policy route
 Route::get('/privacy', function () {
     return view('privacy-policy');
