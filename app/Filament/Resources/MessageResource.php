@@ -33,13 +33,30 @@ class MessageResource extends Resource
     {
         return $table
             ->columns([
-                //
+                //we should show the subject, date sent, and current status of the message
+                Tables\Columns\TextColumn::make('subject'),
+                Tables\Columns\TextColumn::make('created_at')->time()->sortable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->sortable()
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'new' => 'warning',
+                        'open' => 'success',
+                        'replied' => 'gray',
+                        default => 'danger',
+                    })
+                    ->formatStateUsing(
+                        function (Message $value) {
+                            //capitalize the first letter of the status
+                            return ucfirst($value->status);
+                        }
+                    )
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -62,5 +79,10 @@ class MessageResource extends Resource
             'create' => Pages\CreateMessage::route('/create'),
             'edit' => Pages\EditMessage::route('/{record}/edit'),
         ];
+    }
+
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }
