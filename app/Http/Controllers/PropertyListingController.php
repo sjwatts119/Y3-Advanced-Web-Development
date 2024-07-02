@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookingRequest;
+use App\Mail\BookingRequested;
+use App\Models\ContactDetails;
 use App\Models\PropertyListing;
 Use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PropertyListingController extends Controller
 {
@@ -53,6 +56,14 @@ class PropertyListingController extends Controller
 
         //if booking is successful, redirect to the bookings page
         if($booking->save()){
+            //use the mail facade to send the email
+            try{
+                Mail::to($booking->user_email)->send(new BookingRequested());
+            }
+            catch(\Exception $e){
+                return redirect()->route('contact.index')->with('error', 'Message failed to send');
+            }
+
             session()->put('booking_success', true);
             $slug = $booking->propertyListing->slug;
             return redirect()->route('properties.success', ['slug' => $slug])->with('success', 'Booking successful');
