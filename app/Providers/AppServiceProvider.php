@@ -22,8 +22,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(
-            //pass the active theme to the navigation and footer layouts so we can use it in the views
-            ['layouts.navigation', 'layouts.footer', 'layouts.guest', 'layouts.app', 'layouts.home', 'home', 'contact.index'],
+            //pass the active theme to relevant views
+            ['layouts.*', 'home', 'contact.index', 'mail.*'],
             //pass in the active theme from the themes model
             fn($view) => $view->with('theme', Theme::getTheme())
         );
