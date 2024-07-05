@@ -20,9 +20,9 @@
             <hr class="border-t-2 border-gray-200 dark:border-gray-700">
         </div>
 
-        {{--loop through the listings and show a small card each, with up to 5 per row--}}
+        {{--loop through the listings and show a small card each, with up to 4 per row--}}
         <div class="container lg:w-3/4 w-11/12 mx-auto">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
                 @foreach($listings as $listing)
                     <x-listing-card-small :listing="$listing" />
                 @endforeach
