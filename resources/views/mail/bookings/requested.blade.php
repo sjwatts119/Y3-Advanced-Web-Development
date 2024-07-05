@@ -17,9 +17,9 @@
 @endsection
 
 @section('button_link')
-    {{ url('/contact')}}
+    {{ url('/contact') }}
 @endsection
 
 @section('company_info')
-    © {{date('Y')}} {{ $theme->company_name }}. All rights reserved.
+    © {{ date('Y') }} {{ $theme->company_name }}. All rights reserved.
 @endsection

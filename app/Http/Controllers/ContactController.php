@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Mail\ContactReceived;
 use App\Models\ContactDetails;
 use App\Models\Message;
 use Illuminate\Http\Request;
@@ -31,8 +32,6 @@ class ContactController extends Controller
     {
         $validated = $request->validated();
 
-        //we need to email the user saying the message has been received TODO
-
         //we need to store the message in the database so the admin can view it
         $contact = new Message();
         $contact->email = $validated['email'];
@@ -41,6 +40,9 @@ class ContactController extends Controller
         $contact->message = $validated['message'];
 
         if($contact->save()){
+            //email the user to confirm their message has been received
+            Mail::to($validated['email'])->send(new ContactReceived());
+
             session()->put('contact_success', true);
             return redirect()->route('contact.success')->with('success', 'Message sent successfully');
         }
