@@ -31,9 +31,6 @@ Route::post('/properties/{slug}/book', [PropertyListingController::class, 'store
 //create a route to show a successful booking
 Route::get('/properties/{slug}/book/success', [PropertyListingController::class, 'success'])->name('properties.success');
 
-//create a bookings route
-Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
-
 //create a contact route
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 

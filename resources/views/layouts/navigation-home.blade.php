@@ -22,11 +22,6 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('bookings.index')" :active="request()->routeIs('bookings.index')">
-                        {{ __('Bookings') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                         {{ __('Contact Us') }}
                     </x-nav-link>
@@ -98,9 +93,6 @@
         </x-responsive-nav-link>
         <x-responsive-nav-link :href="route('properties.index')" :active="request()->routeIs('properties.index')">
             {{ __('Properties') }}
-        </x-responsive-nav-link>
-        <x-responsive-nav-link :href="route('bookings.index')" :active="request()->routeIs('bookings.index')">
-            {{ __('Bookings') }}
         </x-responsive-nav-link>
         <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
             {{ __('Contact Us') }}
