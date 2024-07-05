@@ -61,7 +61,7 @@ class PropertyListingController extends Controller
                 Mail::to($booking->user_email)->send(new BookingRequested());
             }
             catch(\Exception $e){
-                return redirect()->route('contact.index')->with('error', 'Message failed to send');
+                return redirect()->route('contact.index')->with('error', 'Email failed to send. Your booking was successful.');
             }
 
             session()->put('booking_success', true);

@@ -41,7 +41,12 @@ class ContactController extends Controller
 
         if($contact->save()){
             //email the user to confirm their message has been received
-            Mail::to($validated['email'])->send(new ContactReceived());
+            try{
+                Mail::to($validated['email'])->send(new ContactReceived());
+            }
+            catch(\Exception $e){
+                return redirect()->route('contact.index')->with('error', 'Email failed to send. Your message was passed on successfully.');
+            }
 
             session()->put('contact_success', true);
             return redirect()->route('contact.success')->with('success', 'Message sent successfully');
