@@ -1,9 +1,14 @@
-
 <x-app-layout>
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            <div class="">Privacy Policy</div>
+        </h2>
+    </x-slot>
+
     <div class="md:w-3/4 w-full mt-10 mx-auto bg-white md:rounded-xl">
             <div class="p-6">
-                <h1 class="text-2xl font-bold mb-4">Privacy Policy</h1>
-                <p class="text-sm mb-2">Effective Date: 1/11/2023</p>
+                <h1 class="text-2xl font-bold mb-4">Effective Date: 1/11/2023</h1>
 
                 <div class="mb-4">
                     <h2 class="text-xl font-bold mb-2">1. Introduction</h2>
