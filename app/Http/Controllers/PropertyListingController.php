@@ -56,16 +56,20 @@ class PropertyListingController extends Controller
 
         //if booking is successful, redirect to the bookings page
         if($booking->save()){
-            //use the mail facade to send the email
-            try{
-                Mail::to($booking->user_email)->send(new BookingRequested());
-            }
-            catch(\Exception $e){
-                return redirect()->route('contact.index')->with('error', 'Email failed to send. Your booking was successful.');
-            }
-
             session()->put('booking_success', true);
             $slug = $booking->propertyListing->slug;
+            //retrieve the property name from the property listing model
+            //this is horribly hacky changing the db schema isn't worth the time right now
+            $propertyName = PropertyListing::where('id', $booking->property_listing_id)->first()->name;
+
+            //use the mail facade to send the email
+            try{
+                Mail::to($booking->user_email)->send(new BookingRequested($booking, $propertyName));
+            }
+            catch(\Exception $e){
+                return redirect()->route('properties.success', ['slug' => $slug])->with('error', 'Email failed to send. Your booking was successful.');
+            }
+
             return redirect()->route('properties.success', ['slug' => $slug])->with('success', 'Booking successful');
         }
         else{

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    Thank you for requesting a booking with us. We will be in touch shortly.
+    Thank you for requesting to book {{ $propertyName }}. We will be in touch shortly to confirm your booking.
 @endsection
 
 @section('button_text')

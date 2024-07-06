@@ -40,6 +40,8 @@ class ContactController extends Controller
         $contact->message = $validated['message'];
 
         if($contact->save()){
+            session()->put('contact_success', true);
+
             //email the user to confirm their message has been received
             try{
                 Mail::to($validated['email'])->send(new ContactReceived());
@@ -48,7 +50,6 @@ class ContactController extends Controller
                 return redirect()->route('contact.index')->with('error', 'Email failed to send. Your message was passed on successfully.');
             }
 
-            session()->put('contact_success', true);
             return redirect()->route('contact.success')->with('success', 'Message sent successfully');
         }
         else{

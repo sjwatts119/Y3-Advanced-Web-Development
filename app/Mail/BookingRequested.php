@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use App\Models\Booking;
+use App\Models\PropertyListing;
 use App\Models\Theme;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -17,9 +19,9 @@ class BookingRequested extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public Booking $booking, public $propertyName)
     {
-        //
+
     }
 
     /**
