@@ -7,7 +7,7 @@
 
                 <div class="mb-4">
                     <h2 class="text-xl font-bold mb-2">1. Introduction</h2>
-                    <p class="text-sm">This Privacy Policy outlines the policies and practices of Scenario 1 Company in relation to the collection, use, and disclosure of personal information through our website and services. We are committed to safeguarding the privacy and security of your personal information. By using our website and services, you agree to the terms and practices described in this Privacy Policy.</p>
+                    <p class="text-sm">This Privacy Policy outlines the policies and practices of Scottish Holiday Getaways in relation to the collection, use, and disclosure of personal information through our website and services. We are committed to safeguarding the privacy and security of your personal information. By using our website and services, you agree to the terms and practices described in this Privacy Policy.</p>
                 </div>
 
                 <div class="mb-4">
@@ -71,8 +71,8 @@
                 <div class="mb-4">
                     <h2 class="text-xl font-bold mb-2">10. Contact Information</h2>
                     <p class="text-sm">If you have any questions, concerns, or requests regarding your personal information or this Privacy Policy, please contact us at:</p>
-                    <p class="text-sm">Scenario 1 Company</p>
-                    <p class="text-sm">scenario1company@email.com</p>
+                    <p class="text-sm">Scottish Holiday Getaways</p>
+                    <p class="text-sm">enquiries@WS296281-AWD.remote.ac</p>
                     <p class="text-sm">0123456789</p>
                 </div>
 
