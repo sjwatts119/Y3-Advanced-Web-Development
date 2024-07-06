@@ -59,7 +59,8 @@ class BookingResource extends Resource
                                         ->danger()
                                         ->send();
                                 }
-                            }),
+                            })
+                            ->visible(fn (Booking $booking) => $booking->status !== 'approved'),
                         Infolists\Components\Actions\Action::make('Reject')
                             ->icon('heroicon-s-x-mark')
                             ->color('danger')
@@ -80,7 +81,8 @@ class BookingResource extends Resource
                                         ->danger()
                                         ->send();
                                 }
-                            }),
+                            })
+                            ->visible(fn (Booking $booking) => $booking->status !== 'rejected'),
                     ])
                 ])
             ]);
