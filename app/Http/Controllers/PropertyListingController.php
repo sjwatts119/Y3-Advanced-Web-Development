@@ -60,7 +60,7 @@ class PropertyListingController extends Controller
             $slug = $booking->propertyListing->slug;
             //retrieve the property name from the property listing model
             //this is horribly hacky changing the db schema isn't worth the time right now
-            $propertyName = PropertyListing::where('id', $booking->property_listing_id)->first()->name;
+            $propertyName = PropertyListing::find($booking->property_listing_id)->name ?? 'Property Not Found';
 
             //use the mail facade to send the email
             try{

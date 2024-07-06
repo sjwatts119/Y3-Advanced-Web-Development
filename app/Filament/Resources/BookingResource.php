@@ -4,15 +4,19 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BookingResource\Pages;
 use App\Filament\Resources\BookingResource\RelationManagers;
+use App\Mail\BookingApproved;
+use App\Mail\BookingRejected;
 use App\Models\Booking;
 use App\Models\PropertyListing;
 use Filament\Infolists;
 use Filament\Infolists\Infolist;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Mail;
 
 class BookingResource extends Resource
 {
@@ -41,7 +45,20 @@ class BookingResource extends Resource
                             ->action(function (Booking $booking) {
                                 $booking->status = 'approved';
                                 $booking->save();
-                                //MAIL EVENT TODO
+                                $propertyName = PropertyListing::find($booking->property_listing_id)->name ?? 'Property Not Found';
+                                try {
+                                    Mail::to($booking->user_email)->send(new BookingApproved($booking, $propertyName));
+                                    Notification::make()
+                                        ->title('Booking Approved! User Notified by Email')
+                                        ->success()
+                                        ->send();
+                                } catch (\Exception $e) {
+                                    //we should display a livewire alert to warn the user the mail couldn't be sent
+                                    Notification::make()
+                                        ->title('Booking Approved, Email to User Failed to Send')
+                                        ->danger()
+                                        ->send();
+                                }
                             }),
                         Infolists\Components\Actions\Action::make('Reject')
                             ->icon('heroicon-s-x-mark')
@@ -49,7 +66,20 @@ class BookingResource extends Resource
                             ->action(function (Booking $booking) {
                                 $booking->status = 'rejected';
                                 $booking->save();
-                                //MAIL EVENT TODO
+                                $propertyName = PropertyListing::find($booking->property_listing_id)->name ?? 'Property Not Found';
+                                try {
+                                    Mail::to($booking->user_email)->send(new BookingRejected($booking, $propertyName));
+                                    Notification::make()
+                                        ->title('Booking Rejected! User Notified by Email')
+                                        ->success()
+                                        ->send();
+                                } catch (\Exception $e) {
+                                    //we should display a livewire alert to warn the user the mail couldn't be sent
+                                    Notification::make()
+                                        ->title('Booking Rejected, Email to User Failed to Send')
+                                        ->danger()
+                                        ->send();
+                                }
                             }),
                     ])
                 ])
