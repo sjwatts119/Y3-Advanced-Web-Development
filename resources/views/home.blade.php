@@ -131,7 +131,7 @@
             <div class="w-full">
                 {{-- make a container for the youtube video and center it --}}
                 <div class="flex items-center justify-center rounded-xl h-[500px] sm:h-[700px]">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/L7iyJzwWb0c?si=zBfgTr6aHCGzY_GT" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/A6K2yntZpN0?si=0b_usHgf2acEU1SQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
