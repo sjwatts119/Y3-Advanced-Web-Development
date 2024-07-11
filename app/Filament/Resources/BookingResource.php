@@ -131,7 +131,8 @@ class BookingResource extends Resource
             ])
             ->bulkActions([
 
-            ]);
+            ])
+            ->recordUrl(null);
     }
 
     public static function getRelations(): array
