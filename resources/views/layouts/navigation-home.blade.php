@@ -17,14 +17,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('properties.index')" :active="request()->routeIs('properties.index')" class="text-gray-100 hover:text-gray-300">
+                    <x-nav-link-home :href="route('properties.index')" :active="request()->routeIs('properties.index')" class="text-gray-100 hover:text-gray-300">
                         {{ __('Properties') }}
-                    </x-nav-link>
+                    </x-nav-link-home>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="text-gray-100 hover:text-gray-300">
+                    <x-nav-link-home :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="text-gray-100 hover:text-gray-300">
                         {{ __('Contact Us') }}
-                    </x-nav-link>
+                    </x-nav-link-home>
                 </div>
             </div>
 
@@ -68,9 +68,11 @@
                         </x-slot>
                     </x-dropdown>
                 @else
-                    <x-nav-link :href="route('login')" class="text-gray-100 hover:text-gray-300">
-                        {{ __('Log in') }}
-                    </x-nav-link>
+                    <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex h-16">
+                        <x-nav-link-home :href="route('login')" class="text-gray-100 hover:text-gray-300">
+                            {{ __('Log in') }}
+                        </x-nav-link-home>
+                    </div>
                 @endif
             </div>
 
