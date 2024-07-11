@@ -1,12 +1,14 @@
 <x-home-layout>
     <x-slot name="header">
-        <section class="h-screen flex flex-col items-center justify-center text-center text-white ">
-            <div class="video-docker absolute top-0 left-0 z-[-100] w-full h-full overflow-hidden">
-                <video class="min-w-full min-h-full absolute object-cover"
+        <section class="h-screen flex flex-col items-center justify-center text-center text-white">
+            <div class="video-docker absolute top-0 left-0 z-[-100] w-full h-[120vh] overflow-hidden">
+                <video class="min-w-full min-h-full absolute object-cover hidden sm:block"
                        src="{{asset('img/scotland.mp4')}}"
                        type="video/mp4" autoplay muted loop>
 
                 </video>
+                {{--use a fallback image for mobile devices--}}
+                <img class="min-w-full min-h-full object-cover sm:hidden" src="{{asset('img/scotland.jpg')}}" alt="Scotland" />
             </div>
             <div class="video-content space-y-2 z-10">
                 <div class="flex flex-col justify-between">
@@ -29,9 +31,6 @@
             </div>
         </section>
     </x-slot>
-
-{{--put the jumbotron inside the header--}}
-
 
     <div class="bg-gradient-to-r from-blue-500 to-pink-500 pt-1"></div>
 
