@@ -56,6 +56,9 @@ class AdminPanelProvider extends PanelProvider
                 NavigationItem::make('Return to Site')
                     ->url('/')
                     ->icon('heroicon-o-link')
-            ]);
+            ])
+            ->brandLogo(
+                fn () => view('filament.admin.logo')
+            );
     }
 }

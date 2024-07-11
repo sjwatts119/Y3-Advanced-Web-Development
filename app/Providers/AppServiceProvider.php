@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer(
             //pass the active theme to relevant views
-            ['layouts.*', 'home', 'contact.index', 'mail.*'],
+            ['layouts.*', 'home', 'contact.index', 'mail.*', 'filament.admin.logo'],
             //pass in the active theme from the themes model
             fn($view) => $view->with('theme', Theme::getTheme())
         );
