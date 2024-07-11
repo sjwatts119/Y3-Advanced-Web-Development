@@ -68,9 +68,11 @@
                         </x-slot>
                     </x-dropdown>
                 @else
-                    <x-nav-link :href="route('login')">
-                        {{ __('Log in') }}
-                    </x-nav-link>
+                    <div class="space-x-8 sm:-my-px sm:ms-10 sm:flex h-16">
+                        <x-nav-link :href="route('login')">
+                            {{ __('Log in') }}
+                        </x-nav-link>
+                    </div>
                 @endif
             </div>
 
