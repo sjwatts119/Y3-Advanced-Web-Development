@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="sm:bg-transparent bg-white">
+<nav x-data="{ open: false }" class="sm:bg-black/65 bg-white">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -17,12 +17,12 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('properties.index')" :active="request()->routeIs('properties.index')">
+                    <x-nav-link :href="route('properties.index')" :active="request()->routeIs('properties.index')" class="text-gray-100 hover:text-gray-300">
                         {{ __('Properties') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')" class="text-gray-100 hover:text-gray-300">
                         {{ __('Contact Us') }}
                     </x-nav-link>
                 </div>
@@ -68,7 +68,7 @@
                         </x-slot>
                     </x-dropdown>
                 @else
-                    <x-nav-link :href="route('login')">
+                    <x-nav-link :href="route('login')" class="text-gray-100 hover:text-gray-300">
                         {{ __('Log in') }}
                     </x-nav-link>
                 @endif
