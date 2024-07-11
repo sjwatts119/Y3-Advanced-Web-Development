@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <div class="container mt-10 mx-auto">
+    <div class="container mt-10 mx-auto w-3/4 sm:w-5/6 md:w-3/4">
         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
         <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a question about a property? Want to know more about our services? Get in touch with us using the form below.</p>
     </div>
